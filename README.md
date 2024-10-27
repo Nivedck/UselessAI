@@ -24,7 +24,7 @@ Project is the solution :
 ### Technologies/Components Used
 For Software:
 - Python
-- Flask(Python Framework)
+- Flask(Python Framework),guricon
 - Langchain_google,Flask
 - NO Tools
 
@@ -32,11 +32,12 @@ For Software:
 ### Implementation
 For Software:
 # Installaton
-pip install Flask
-pip install langchain_google
+pip install -r requirements.txt
+
 
 # Run
 python app.py
+guricon app:app
 
 ### Project Documentation
 For Software:
