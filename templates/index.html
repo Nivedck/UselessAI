@@ -139,18 +139,19 @@
             const userInput = document.getElementById("user-input").value;
             if (userInput === "") return;
 
-            // Display user's message
+            
             const messages = document.getElementById("messages");
             const userMessageDiv = document.createElement("div");
             userMessageDiv.className = "message user";
             userMessageDiv.innerText = userInput;
             messages.appendChild(userMessageDiv);
 
-            // Clear input field and scroll to bottom
+            
             document.getElementById("user-input").value = "";
             messages.scrollTop = messages.scrollHeight;
 
-            // Send message to backend
+            
+
             const response = await fetch("/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -160,10 +161,82 @@
             const data = await response.json();
             const botMessage = data.response;
 
-            // Display bot's response
+            
+            const botMessageDiv = document.createElement("div");
+            botMessageDiv.className = "message bot";
+            botMe<script>
+        async function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            if (userInput === "") return;
+
+            
+            const messages = document.getElementById("messages");
+            const userMessageDiv = document.createElement("div");
+            userMessageDiv.className = "message user";
+            userMessageDiv.innerText = userInput;
+            messages.appendChild(userMessageDiv);
+
+            
+            document.getElementById("user-input").value = "";
+            messages.scrollTop = messages.scrollHeight;
+
+            
+
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userInput })
+            });
+            
+            const data = await response.json();
+            const botMessage = data.response;
+
+           
             const botMessageDiv = document.createElement("div");
             botMessageDiv.className = "message bot";
             botMessageDiv.innerText = botMessage;
+            messages.append<script>
+        async function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            if (userInput === "") return;
+
+            
+            const messages = document.getElementById("messages");
+            const userMessageDiv = document.createElement("div");
+            userMessageDiv.className = "message user";
+            userMessageDiv.innerText = userInput;
+            messages.appendChild(userMessageDiv);
+
+            
+            document.getElementById("user-input").value = "";
+            messages.scrollTop = messages.scrollHeight;
+
+            
+
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userInput })
+            });
+            
+            const data = await response.json();
+            const botMessage = data.response;
+
+            
+            const botMessageDiv = document.createElement("div");
+            botMessageDiv.className = "message bot";
+            botMessageDiv.innerText = botMessage;
+            messages.appendChild(botMessageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+</body>
+Child(botMessageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+</body>
+ssageDiv.innerText = botMessage;
             messages.appendChild(botMessageDiv);
             messages.scrollTop = messages.scrollHeight;
         }
