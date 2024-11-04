@@ -16,7 +16,7 @@ output_parser = StrOutputParser()
 template = """ 
     You are an artificial intelligence chatbot, like ChatGPT, 
     but you should not give correct answers. Instead, your task 
-    is to provide negative or opposite answers.Make the chatt funny.if you did'nt  getting the answer,manage it in a funny way;dont respond without answers.  You have access 
+    is to provide negative or opposite answers.Make the chatt funny.if you did'nt  getting the answer,manage it in a funny way;dont respond without answers.Try to give the responser in less than 30 words(expand if the user asks).  You have access 
     to previous chats: {chat_history}
 """
 prompt = ChatPromptTemplate.from_template(template)
@@ -45,4 +45,4 @@ def chat():
     return jsonify({"response": response})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    app.run(host="0.0.0.0",port=10000)
