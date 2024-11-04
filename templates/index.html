@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Web App</title>
     <style>
-      
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -13,7 +12,6 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-           
             background: linear-gradient(135deg, #4a90e2, #e94e77);
             background-size: cover;
             background-attachment: fixed;
@@ -32,7 +30,6 @@
             height: 80vh;
         }
 
-        
         #header {
             background-color: #007bff;
             color: white;
@@ -108,7 +105,6 @@
             background-color: #0056b3;
         }
 
-        
         #messages::-webkit-scrollbar {
             width: 8px;
         }
@@ -121,13 +117,8 @@
 </head>
 <body>
     <div id="chatbox">
-       
-        <div id="header">AI Chatbot </div>
-        
-        
+        <div id="header">AI Chatbot</div>
         <div id="messages"></div>
-        
-        
         <div id="input-section">
             <input type="text" id="user-input" placeholder="Type your message here" />
             <button id="send-btn" onclick="sendMessage()">Send</button>
@@ -139,106 +130,36 @@
             const userInput = document.getElementById("user-input").value;
             if (userInput === "") return;
 
-            
             const messages = document.getElementById("messages");
+
+            // Display the user message
             const userMessageDiv = document.createElement("div");
             userMessageDiv.className = "message user";
             userMessageDiv.innerText = userInput;
             messages.appendChild(userMessageDiv);
 
-            
+            // Clear input and scroll to the bottom
             document.getElementById("user-input").value = "";
             messages.scrollTop = messages.scrollHeight;
 
-            
-
+            // Send message to the server
             const response = await fetch("/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: userInput })
             });
-            
+
             const data = await response.json();
             const botMessage = data.response;
 
-            
-            const botMessageDiv = document.createElement("div");
-            botMessageDiv.className = "message bot";
-            botMe<script>
-        async function sendMessage() {
-            const userInput = document.getElementById("user-input").value;
-            if (userInput === "") return;
-
-            
-            const messages = document.getElementById("messages");
-            const userMessageDiv = document.createElement("div");
-            userMessageDiv.className = "message user";
-            userMessageDiv.innerText = userInput;
-            messages.appendChild(userMessageDiv);
-
-            
-            document.getElementById("user-input").value = "";
-            messages.scrollTop = messages.scrollHeight;
-
-            
-
-            const response = await fetch("/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userInput })
-            });
-            
-            const data = await response.json();
-            const botMessage = data.response;
-
-           
-            const botMessageDiv = document.createElement("div");
-            botMessageDiv.className = "message bot";
-            botMessageDiv.innerText = botMessage;
-            messages.append<script>
-        async function sendMessage() {
-            const userInput = document.getElementById("user-input").value;
-            if (userInput === "") return;
-
-            
-            const messages = document.getElementById("messages");
-            const userMessageDiv = document.createElement("div");
-            userMessageDiv.className = "message user";
-            userMessageDiv.innerText = userInput;
-            messages.appendChild(userMessageDiv);
-
-            
-            document.getElementById("user-input").value = "";
-            messages.scrollTop = messages.scrollHeight;
-
-            
-
-            const response = await fetch("/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userInput })
-            });
-            
-            const data = await response.json();
-            const botMessage = data.response;
-
-            
+            // Display the bot message
             const botMessageDiv = document.createElement("div");
             botMessageDiv.className = "message bot";
             botMessageDiv.innerText = botMessage;
             messages.appendChild(botMessageDiv);
+
             messages.scrollTop = messages.scrollHeight;
         }
     </script>
 </body>
-Child(botMessageDiv);
-            messages.scrollTop = messages.scrollHeight;
-        }
-    </script>
-</body>
-ssageDiv.innerText = botMessage;
-            messages.appendChild(botMessageDiv);
-            messages.scrollTop = messages.scrollHeight;
-        }
-    </script>
-</body>
+</html>
