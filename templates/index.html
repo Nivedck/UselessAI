@@ -53,23 +53,25 @@
         }
 
         .user {
-            align-self: flex-end;
+            align-self: flex-end; 
             background-color: #007bff;
             color: white;
             padding: 10px;
             border-radius: 8px;
             max-width: 75%;
             text-align: right;
+            margin-left: auto; 
         }
 
         .bot {
-            align-self: flex-start;
+            align-self: flex-start; 
             background-color: #e0e0e0;
             color: #333;
             padding: 10px;
             border-radius: 8px;
             max-width: 75%;
             text-align: left;
+            margin-right: auto; 
         }
 
         #input-section {
@@ -126,38 +128,51 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userInput = document.getElementById("user-input");
+
+            userInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+
         async function sendMessage() {
             const userInput = document.getElementById("user-input").value;
             if (userInput === "") return;
 
             const messages = document.getElementById("messages");
-
-            // Display the user message
             const userMessageDiv = document.createElement("div");
             userMessageDiv.className = "message user";
             userMessageDiv.innerText = userInput;
             messages.appendChild(userMessageDiv);
 
-            // Clear input and scroll to the bottom
             document.getElementById("user-input").value = "";
             messages.scrollTop = messages.scrollHeight;
 
-            // Send message to the server
-            const response = await fetch("/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userInput })
-            });
+            try {
+                const response = await fetch("/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userInput })
+                });
+                
+                if (!response.ok) throw new Error("Network response was not ok");
 
-            const data = await response.json();
-            const botMessage = data.response;
-
-            // Display the bot message
-            const botMessageDiv = document.createElement("div");
-            botMessageDiv.className = "message bot";
-            botMessageDiv.innerText = botMessage;
-            messages.appendChild(botMessageDiv);
-
+                const data = await response.json();
+                const botMessageDiv = document.createElement("div");
+                botMessageDiv.className = "message bot"; 
+                botMessageDiv.innerText = data.response;
+                messages.appendChild(botMessageDiv);
+            } catch (error) {
+                const errorDiv = document.createElement("div");
+                errorDiv.className = "message bot"; 
+                errorDiv.innerText = "Error: Could not connect to server.";
+                messages.appendChild(errorDiv);
+            }
+            
             messages.scrollTop = messages.scrollHeight;
         }
     </script>
