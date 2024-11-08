@@ -2,7 +2,7 @@
 
 GenAI Chatbot 🎯
 
-[WEBSITE LINK (UPDATED)](www.uselessai.onrender.com)
+[WEBSITE LINK (UPDATED)](https://uselessai.onrender.com)
 It may tooks minutes to load the website(Render free plan!!)
 
 
