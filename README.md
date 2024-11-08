@@ -26,8 +26,8 @@ Project is the solution :
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- Python
-- Flask(Python Framework),guricon
+- Python , Javascript , HTML
+- Microsoft VisualStudioCode
 - Langchain,Flask,Geminillm
 - Render.com
 
@@ -58,7 +58,7 @@ Screenshot of the web page and the output
 
 
 ## Team Contributions
-- Nived C K - Coding,Idea Implementation
+- Nived C K - Coding,Idea Implementation , webhosting
 - Sanjay -Coding, Documentation
 - Gopika - Team Cordination
 
