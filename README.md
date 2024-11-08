@@ -2,7 +2,8 @@
 
 GenAI Chatbot 🎯
 
-WEBSITE LINK (UPDATED)-- uselessai.onrender.com
+[WEBSITE LINK (UPDATED)](www.uselessai.onrender.com)
+It may tooks minutes to load the website(Render free plan!!)
 
 
 ## Basic Details
@@ -27,8 +28,8 @@ Project is the solution :
 For Software:
 - Python
 - Flask(Python Framework),guricon
-- Langchain_google,Flask
-- NO Tools
+- Langchain,Flask,Geminillm
+- Render.com
 
 
 ### Implementation
@@ -42,7 +43,7 @@ python app.py
 guricon app:app
 
 ### Project Documentation
-For Software:
+For Software: flask, langchain...
 
 # Screenshots (Add at least 3)
 https://ibb.co/FVGqgrK
